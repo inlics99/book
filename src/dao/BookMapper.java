@@ -9,4 +9,5 @@ public interface BookMapper {
 	public List<Book> findByBame(String name );
 	public List<Book> findByAuthor(String name );
 	public List<Book> findByPublish(String name );
+	public int saveBook(Book book);
 }

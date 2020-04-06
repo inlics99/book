@@ -7,5 +7,5 @@ import pojo.Book;
 public interface bookService {
 	List<Book> getAllBook();
 	List<Book> find(int type,String name);
-	
+	boolean saveBook(Book book);
 }

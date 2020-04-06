@@ -39,6 +39,25 @@ public class book extends HttpServlet {
 			getAllBook(request,response);
 		}else if("find".equals(op)) {
 			find(request,response);
+		}else if("add".equals(op)) {
+			saveBook(request,response);
+		}
+	}
+
+	private void saveBook(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		// TODO Auto-generated method stub
+		String name=request.getParameter("name");
+		String author=request.getParameter("author");
+		String publish=request.getParameter("publish");
+		int page=Integer.parseInt(request.getParameter("page"));
+		int price=Integer.parseInt(request.getParameter("price"));
+		//System.out.println(name+author+publish+page+price);
+		Book book=new Book(name, author, publish, page, price);
+		boolean isOk=bk.saveBook(book);
+		if(isOk) {
+			response.sendRedirect("book?op=show");
+		}else {
+			request.getRequestDispatcher("Add.jsp").forward(request, response);
 		}
 	}
 

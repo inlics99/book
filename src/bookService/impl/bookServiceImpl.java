@@ -11,6 +11,7 @@ import pojo.Book;
 
 public class bookServiceImpl implements bookService {
 	private SqlSession SqlSession;
+	private BookMapper bkm;
 	@Override
 	public List<Book> getAllBook() {
 		// TODO Auto-generated method stub
@@ -33,6 +34,18 @@ public class bookServiceImpl implements bookService {
 		}
 		MyBatisUtils.close(SqlSession);
 		return list;
+	}
+	@Override
+	public boolean saveBook(Book book) {
+		// TODO Auto-generated method stub
+		SqlSession =MyBatisUtils.createSqlSession();
+		int result=SqlSession.getMapper(BookMapper.class).saveBook(book);
+		if(result>0) {
+			SqlSession.commit();
+			return true;
+		}
+		MyBatisUtils.close(SqlSession);
+		return false;
 	}
 	
 }

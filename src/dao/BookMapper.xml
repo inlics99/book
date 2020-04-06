@@ -19,4 +19,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM book_info
 		WHERE book_publish LIKE CONCAT('%',#{name},'%')
 	</select>
+	<insert id="saveBook" parameterType="book">
+		INSERT INTO book_info(book_bame,book_author,book_publish,book_page,book_price,creation_time)	
+		VALUES(#{book_bame},#{book_author},#{book_publish},#{book_page},#{book_price},DEFAULT)
+	</insert>
 </mapper>

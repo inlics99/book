@@ -52,5 +52,16 @@ public class Book {
 	public void setCreation_time(Date creation_time) {
 		this.creation_time = creation_time;
 	}
+	public Book(String book_bame, String book_author, String book_publish, int book_page, int book_price) {
+		super();
+		this.book_bame = book_bame;
+		this.book_author = book_author;
+		this.book_publish = book_publish;
+		this.book_page = book_page;
+		this.book_price = book_price;
+	}
+	public Book() {
+		super();
+	}
 	
 }

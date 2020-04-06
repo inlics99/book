@@ -15,7 +15,7 @@
 </style>
 </head>
 <body>
-	<form action="<%-- ${pageContext.request.contextPath}/book?op=add --%>" method="get">
+	<form action=" ${pageContext.request.contextPath}/book?op=add" method="post">
 		<table>
 			<tr>
 				<td colspan="2">新增新书</td>
@@ -62,7 +62,12 @@
 			var price=$("input[name='price']").val();
 			if(name=="" || name==null){
 				alert("书名不能为空");
+				return false;
+			}else if(isNaN(price)){
+				alert("价格必须是数字");
+				return false;
 			}
+			return true
 		});
 	});
 </script>
